@@ -20,17 +20,26 @@ function Inputcard() {
     setVal(deleteData);
   };
 
-  console.log(val, "dddddddddddddddd");
-
   return (
     <>
-      <button onClick={() => handleAdd()}>Add</button>
+      <button className="add-btn" onClick={() => handleAdd()}>
+        Add
+      </button>
 
       {val.map((data, i) => {
         return (
-          <div>
-            <input value={data} onChange={(e) => handleChange(e, i)} />
-            <button onClick={() => handleDelete(i)}>X</button>
+          <div className="container">
+            <div className="content">
+              <div className="card">
+                <input
+                  className="card-content"
+                  value={data}
+                  onChange={(e) => handleChange(e, i)}
+                />
+
+                <button onClick={() => handleDelete(i)}>X</button>
+              </div>
+            </div>
           </div>
         );
       })}
